@@ -3,13 +3,13 @@
     <form method="POST">
       <h3 align="center">Login</h3>
       <div class="form-group">
-        <label for="email">Email Address</label>
+        <label for="username">Usuario</label>
         <input
-          type="email"
+          type="text"
           class="form-control"
-          id="email"
-          name="email"
-          placeholder="Enter email"
+          id="username"
+          name="username"
+          placeholder="Ingrese Usuuario"
         />
       </div>
       <div class="form-group">
@@ -23,6 +23,7 @@
         />
       </div>
       <br />
-      <button type="submit" class="btn btn-primary">Login</button>
+      <button type="submit" style="margin-left: 20px;" class="btn btn-primary">Login</button>
+      <button type="button" style="margin-left: 20px;" class="btn btn-primary" onclick="window.location.href='http://127.0.0.1:5000/home';" >Atras</button>
     </form>
     {% endblock %}

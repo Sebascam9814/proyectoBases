@@ -1,0 +1,41 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+    %}
+    <h1>DataSet</h1>
+    <br>
+    <button type="button" class="btn btn-primary" onclick="window.location.href='http://127.0.0.1:5000/home';" >Crear DataSet</button>
+    <br><br><br>
+    <h3 align="left">Buscar DataSet por nombre o descripion</h3>
+    <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          id="username"
+          name="username"
+          placeholder="Ingrese Data Set a Buscar"
+        />
+        <br>
+        <button type="button" class="btn btn-primary" onclick="window.location.href='http://127.0.0.1:5000/home';" >Buscar</button>
+      </div>
+      <h3 align="left">Buscar DataSet de Usuario</h3>
+      <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            id="username"
+            name="username"
+            placeholder="Ingrese Data Set a Buscar"
+          />
+          <br>
+          <button 
+          type="button" 
+          class="btn btn-primary" 
+          onclick="window.location.href='http://127.0.0.1:5000/home';" 
+          >Buscar</button>
+        </div>
+        <br>
+    <button type="button"  class="btn btn-primary" onclick="window.location.href='http://127.0.0.1:5000/home';" >Home</button>
+     
+        
+      
+      
+    {% endblock %}

@@ -1,21 +1,30 @@
 from flask import Flask
 from flask_mysqldb import MySQL
 from pymongo  import MongoClient
+import redis
+
+
+
 
 dbmysql = MySQL()
-dbmongo =  MongoClient(host="localhost", port=27017)
+
+clientMongo =  MongoClient(host="localhost", port=27017)
+dbMongo = clientMongo.ProyectoDataSet
+dataSetMongo = dbMongo.dataSet
+
+r = redis.Redis(host="localhost",port="6379")
 
 
 def create_app():
     app = Flask(__name__)
-
+    app.secret_key = 'my_secret_key'
     app.config['MYSQL_HOST'] = 'localhost'
     app.config['MYSQL_USER'] = 'root'
     app.config['MYSQL_PASSWORD'] = ''
     app.config['MYSQL_DB'] = 'web'
     
     app.config['MONGODB_SETTINGS'] = {
-    'db': 'your_database',
+    'db': 'poyecto1-DATASET',
     'host': 'localhost',
     'port': 27017
 }
@@ -24,12 +33,9 @@ def create_app():
     dbmysql.init_app(app)
     
 
-   
-
     from .views import views
     from .auth import auth
-
-
+  
     app.register_blueprint(views,url_prefix='/')
     app.register_blueprint(auth,url_prefix='/')
 

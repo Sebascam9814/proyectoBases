@@ -1,0 +1,17 @@
+{% extends "base.html" %} {% block title %}Usuario{% endblock %} {% block content
+    %}
+    <div>
+      <br>
+      <br>
+      <img src="data:image/jpeg;base64,{{ foto }}" alt="Image" width="200 " height="200 " />
+      <br>
+      <br>
+      <h2>Username: <span>{{ username }}</span></h2>
+      <p>Nombre Completo: <span>{{ name }}</span></p>
+      <p>Fecha de cumpleaños: <span>{{ fecha }}</span></p>
+      
+      <button type="button" class="btn btn-primary" onclick="window.location.href='{{ url_for("auth.update", username=username)}}'">Modificar</button>
+      <button type="button" style="margin-left: 20px;" class="btn btn-primary" onclick="window.location.href='http://127.0.0.1:5000/dataset';" >Dataset</button>
+    </div>
+    
+    {% endblock %}
