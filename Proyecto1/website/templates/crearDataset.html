@@ -1,0 +1,70 @@
+{% extends "base.html" %} {% block title %}CrearDataSet{% endblock %} {% block content
+    %}
+    <br><br>
+    <form method="POST">
+      <h3 align="center">Crear DataSet</h3>
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nombre"
+          name="nombre"
+          placeholder="Ingrese nombre de Dataset"
+        />
+      </div>
+      <div class="form-group">
+        <label for="password">descripcion</label>
+        <textarea
+          type="text"
+          class="form-control"
+          id="descripcion"
+          name="descripcion"
+          placeholder="Ingrese descripcion"
+        ></textarea>
+      </div>
+      <div class="form-group">
+        <label for="Fecha">Fecha</label>
+        <input
+          type="date"
+          class="form-control"
+          id="fecha"
+          name="fecha"
+          placeholder="Ingrese fecha naciemiento"
+        />
+      </div>
+      <div class="form-group" >
+        <label for="Foto">Foto</label>
+        <input
+          type="file"
+          class="form-control"
+          id="foto"
+          name="foto"
+          placeholder="Selecione foto de perfil"
+        />
+      </div>
+      <div class="form-group" >
+        <label for="Foto">Archivo</label>
+        <input
+          type="file"
+          class="form-control"
+          id="foto"
+          name="foto"
+          placeholder="Selecione foto de perfil"
+        />
+      </div>
+      <div class="form-group" >
+        <label for="Foto">Video</label>
+        <input
+          type="file"
+          class="form-control"
+          id="foto"
+          name="foto"
+          placeholder="Selecione foto de perfil"
+        />
+      </div>
+      <br />
+      <button type="submit" style="margin-left: 20px;" class="btn btn-primary">Crear</button>
+      <button type="button" style="margin-left: 20px;" class="btn btn-primary" onclick="window.location.href='http://127.0.0.1:5000/home';" >Atras</button>
+    </form>
+    {% endblock %}

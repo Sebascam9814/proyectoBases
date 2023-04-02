@@ -174,4 +174,15 @@ def logins():
 
 @auth.route('/dataset')
 def dataset():
-     return render_template("dataset.html")
+    if request.method == 'GET':
+        username = request.args.get('username')
+        return render_template('dataset.html', username=username)
+    return render_template('home.html')
+
+@auth.route('/crearDataset',methods =['GET','POST'])
+def crearDataset():
+     if request.method == 'GET':
+        username = request.args.get('username')
+        return render_template('crearDataset.html', username=username)
+     return render_template('home.html')
+     
