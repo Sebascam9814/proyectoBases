@@ -1,20 +1,37 @@
 {% extends "base.html" %} {% block title %}DataSet{% endblock %} {% block content
     %}
     <h1>DataSet</h1>
-    <br>
-    <button type="button" class="btn btn-primary" onclick="window.location.href='{{ url_for("auth.crearDataset", username=username)}}'">Crear DataSet</button>
-    <br><br><br>
-    <h3 align="left">Buscar DataSet por nombre o descripion</h3>
-    <div class="form-group">
+    <form method="POST">
+      <h3 align="left">Crear DataSet</h3>
+      <button type="button" class="btn btn-primary" onclick="window.location.href='{{ url_for("auth.crearDataset", username=username)}}'">Crear Dataset</button>
+      <br><br> 
+      <br>
+      <h3 align="left">Ver mis DataSet</h3>
+      <button type="submit" style="margin-left: 20px;" class="btn btn-primary" name="MiButton">Buscar</button>
+      <br><br>
+      <h3 align="left">Buscar DataSet por nombre</h3>
+      <div class="form-group">
         <input
           type="text"
           class="form-control"
-          id="username"
-          name="username"
+          id="nombre"
+          name="nombre"
           placeholder="Ingrese Data Set a Buscar"
         />
         <br>
-        <button type="button" class="btn btn-primary" onclick="window.location.href='http://127.0.0.1:5000/home';" >Buscar</button>
+        <button type="submit" style="margin-left: 20px;" class="btn btn-primary" name="NomButton">Buscar</button>
+      </div>
+      <h3 align="left">Buscar DataSet por descripion</h3>
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          id="Descripcion"
+          name="Descripcion"
+          placeholder="Ingrese Data Set a Buscar"
+        />
+        <br>
+        <button type="submit" style="margin-left: 20px;" class="btn btn-primary" name="DesButton">Buscar</button>
       </div>
       <h3 align="left">Buscar DataSet de Usuario</h3>
       <div class="form-group">
@@ -26,16 +43,10 @@
             placeholder="Ingrese Data Set a Buscar"
           />
           <br>
-          <button 
-          type="button" 
-          class="btn btn-primary" 
-          onclick="window.location.href='http://127.0.0.1:5000/home';" 
-          >Buscar</button>
+          <button type="submit" style="margin-left: 20px;" class="btn btn-primary" name="UsButton">Buscar</button>
         </div>
         <br>
-    <button type="button"  class="btn btn-primary" onclick="window.location.href='http://127.0.0.1:5000/home';" >Home</button>
-     
-        
-      
-      
+        <br>
+        <button type="button" class="btn btn-primary" onclick="window.location.href='{{ url_for("auth.usuario", username=username)}}'">Volver</button>
+    </form>
     {% endblock %}

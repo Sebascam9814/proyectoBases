@@ -1,0 +1,50 @@
+{% extends "base.html" %} {% block title %}Usuario{% endblock %} {% block content
+    %}
+    
+    <div>
+      
+      <h2>Username: <span>{{ username }}</span></h2>
+      <br>
+    </div>
+      <ul>
+        {% if listAmigos != [] %}
+      <h2 style="text-align: left; margin-left: -40px;">Seguidos: </h2>
+      <br>
+          {% for list in listAmigos %}
+          <li>{{ list }}</li>
+          {% endfor %}
+        {% else %}
+          <h2>Todavia no sigues a nadie!</h2>
+        {% endif %}
+        
+      </ul>
+    
+    <form method="POST">
+      <div class="form-group">
+        <label for="addAmigo">Agregar Amigo</label>
+        <input
+          type="text"
+          class="form-control"
+          id="addAmigo"
+          name="addAmigo"
+          placeholder="Agregar amigo"
+        />
+        <br>
+        <button type="submit" style="margin-left: 20px;" class="btn btn-primary" name="addButton">Agregar</button>
+      </div>
+      <div class="form-group">
+        <label for="deleteAmigo">Borrar Amigo</label>
+        <input
+          type="text"
+          class="form-control"
+          id="deleteAmigo"
+          name="deleteAmigo"
+          placeholder="Borrar amigo"
+        />
+        <br>
+        <button type="submit" style="margin-left: 20px;" class="btn btn-primary" name="deleteButton">Borrar</button>
+      </div>
+    </form>
+    <br>
+    <button type="button" class="btn btn-primary" onclick="window.location.href='{{ url_for("auth.usuario", username=username)}}'">Volver</button>
+    {% endblock %}

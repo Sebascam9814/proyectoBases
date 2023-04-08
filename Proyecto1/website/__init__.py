@@ -2,15 +2,16 @@ from flask import Flask
 from flask_mysqldb import MySQL
 from pymongo  import MongoClient
 import redis
+from bson.binary import Binary
+from neo4j import GraphDatabase
 
-
-
-
+#Neo4j Proyecto1 basededatos2
 dbmysql = MySQL()
 
 clientMongo =  MongoClient(host="localhost", port=27017)
 dbMongo = clientMongo.ProyectoDataSet
 dataSetMongo = dbMongo.dataSet
+dbNeo4j = GraphDatabase.driver('bolt://localhost:7687', auth=('neo4j', 'basededatos2'))
 
 r = redis.Redis(host="localhost",port="6379")
 

@@ -45,11 +45,12 @@
             name="foto"
             placeholder="Selecione foto de perfil"
             value="{{ foto }}"
+            accept="image/jpeg"
           />
         </div>
         <br />
         <button type="submit" style="margin-left: 20px;" class="btn btn-primary">Modificar</button>
-        <button type="button" style="margin-left: 20px;" class="btn btn-primary" onclick="window.location.href='http://127.0.0.1:5000/home';" >Atras</button>
+        <button type="button" class="btn btn-primary" onclick="window.location.href='{{ url_for("auth.usuario", username=username)}}'">Volver</button>
       </form>
     {% endblock %}
 

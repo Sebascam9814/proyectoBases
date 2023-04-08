@@ -1,0 +1,50 @@
+
+{% extends "base.html" %} {% block title %}verDataSet{% endblock %} {% block content
+    %}
+    <div>
+      <br><br>
+      <img src="data:image/jpeg;base64,{{ foto }}" alt="Image" width="200 " height="200 " />
+      <br><br>
+      <h2>Nombre del Dataset: <span>{{ nombre }}</span></h2>
+      <p>Descirpcion: <span>{{ descripcion }}</span></p>
+      <p>Fecha de creacion: <span>{{ fecha }}</span></p>
+      <p>Tamaño del DataSet: <span>{{ size }}</span></p>
+      <div>
+      <h2>Archivo del Dataset : </h2>
+      <textarea style="height: 200px; width: 100%; overflow: auto;" readonly>{{ archivo }}</textarea>
+      <br><br>
+      <form method="POST">
+      <button type="submit" style="margin-left: 20px;" class="btn btn-primary" name="DownlodButton">Descargar</button>
+      </form>
+      </div>
+      <div>
+        <h2>Video del Dataset: </h2>
+        <video width="640" height="480" controls>
+            <source src="data:video/mp4;base64,{{ video_base64 }}" type="video/mp4">
+        </video>
+      </div>
+      <form method="POST">
+      <h2>Comentarios: </h2>
+      <button type="submit" style="margin-left: 20px;" class="btn btn-primary" name="ComenButton">Comentar</button>
+     </form>
+      <br><br>
+      <form method="POST">
+      <h2>Mi puntuacion: </span></h2>
+        <div class="form-group">
+          <label for="password">puntuacion</label>
+          <input
+            type="text"
+            class="form-control"
+            id="puntuacion"
+            name="puntuacion"
+            placeholder="Ingrese puntuacion"
+            value="{{ puntuacion }}"
+          />
+        </div>
+        <button type="submit" style="margin-left: 20px;" class="btn btn-primary" name="punButton">Votar</button>
+      </form>
+      <br><br>
+      <button type="button" class="btn btn-primary" onclick="window.location.href='{{ url_for("auth.dataset", username=username)}}'">Volver</button>
+    </div>
+    
+    {% endblock %}

@@ -1,0 +1,32 @@
+
+{% extends "base.html" %} {% block title %}BuscarDataset{% endblock %} {% block content
+    %}
+    
+    <body>
+      <h1>Datasets</h1>
+      {% for document in documents %}
+          <h2>Nombre del Dataset: <span>{{ document["nombre"] }}</span></h2>
+          <p>Id del Dataset: <span>{{ document["id"] }}</span></p>
+          <p>Usuario dueño del Dataset: <span>{{ document["username"] }}</span></p>
+          <p>Descirpcion: <span>{{ document["descripcion"] }}</span></p>
+          <p>Fecha de creacion: <span>{{ document["date"] }}</span></p>
+  
+            {% if username == document["username"] %}
+            <p>Numero de Descargas: <span>{{ document["descargas"] }}</span></p>
+            <p>Numero de Usuario que han descargado el dataset: </p>
+            <ul>
+              {% for usuDown in document["usuariosDownload"] %}
+                <li>{{ usuDown }}</li>
+              {% endfor %}
+            </ul>
+            <button type="button" class="btn btn-primary" onclick="window.location.href='{{ url_for("auth.clonarDataset", idDocumento=document["id"], username=username)}}'">Clonar</button>
+            {% endif %}
+          
+          <button type="button" class="btn btn-primary" onclick="window.location.href='{{ url_for("auth.verDataset", idDocumento=document["id"], username=username)}}'">Ver</button>
+          
+          <br><br>
+          {% endfor %}
+          
+    </body>
+    <button type="button" class="btn btn-primary" onclick="window.location.href='{{ url_for("auth.dataset", username=username)}}'">Volver</button>
+    {% endblock %}

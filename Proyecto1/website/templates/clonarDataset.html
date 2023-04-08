@@ -1,0 +1,22 @@
+
+{% extends "base.html" %} {% block title %}verDataSet{% endblock %} {% block content
+    %}
+    <form method="POST" >
+      <h3 align="center">Clonar Dataset</h3>
+      <h2>Nombre del Dataset a clonar: <span>{{ nombre }}</span></h2>
+      <div class="form-group">
+        <label for="nombre">Nuevo nombre</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nombre"
+          name="nombre"
+          placeholder="Enter username"
+        />
+      </div>
+      <button type="submit" style="margin-left: 20px;" class="btn btn-primary"name="clonButton">Clonar</button>
+      <button type="button" class="btn btn-primary" onclick="window.location.href='{{ url_for("auth.dataset", username=username)}}'">Volver</button>
+
+    </form>
+    
+    {% endblock %}

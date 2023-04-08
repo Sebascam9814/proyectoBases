@@ -12,6 +12,9 @@
       
       <button type="button" class="btn btn-primary" onclick="window.location.href='{{ url_for("auth.update", username=username)}}'">Modificar</button>
       <button type="button" class="btn btn-primary" onclick="window.location.href='{{ url_for("auth.dataset", username=username)}}'">DataSet</button>
+      <button type="button" class="btn btn-primary" onclick="window.location.href='{{ url_for("auth.amigos", username=username)}}'">Seguidos</button>
+      <button type="button" class="btn btn-primary" onclick="window.location.href='{{ url_for("auth.notificaciones", username=username)}}'">Notificaciones</button>
     </div>
-    
+    <br><br>
+    <button type="button" style="margin-left: 20px;" class="btn btn-primary" onclick="window.location.href='http://127.0.0.1:5000/';" >Salir</button>
     {% endblock %}

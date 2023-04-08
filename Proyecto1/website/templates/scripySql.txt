@@ -1,0 +1,21 @@
+DROP DATABASE IF EXISTS web;
+CREATE DATABASE web;
+USE web;
+
+CREATE TABLE `usuarios` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(255) NOT NULL,
+  `nombreCompleto` VARCHAR(45) NOT NULL,
+  `fechaNacimiento` DATE NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC),
+  UNIQUE INDEX `username_UNIQUE` (`username` ASC));
+  
+CREATE TABLE `pictures` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(45) NOT NULL,
+  `picture_data` MEDIUMBLOB NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC),
+  UNIQUE INDEX `username_UNIQUE` (`username` ASC));
