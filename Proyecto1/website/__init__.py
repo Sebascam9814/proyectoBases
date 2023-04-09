@@ -5,17 +5,19 @@ import redis
 from bson.binary import Binary
 from neo4j import GraphDatabase
 
-#Neo4j Proyecto1 basededatos2
+# Conexiones a las bases de datos, y sus respectivos credenciales
+#MySQL
 dbmysql = MySQL()
-
+#MongoDB
 clientMongo =  MongoClient(host="localhost", port=27017)
 dbMongo = clientMongo.ProyectoDataSet
 dataSetMongo = dbMongo.dataSet
+#Neo4j
 dbNeo4j = GraphDatabase.driver('bolt://localhost:7687', auth=('neo4j', 'basededatos2'))
-
+#Redis
 r = redis.Redis(host="localhost",port="6379")
 
-
+#Se crea la aplicacion
 def create_app():
     app = Flask(__name__)
     app.secret_key = 'my_secret_key'
